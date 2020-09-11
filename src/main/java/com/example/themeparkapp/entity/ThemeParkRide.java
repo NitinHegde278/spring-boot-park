@@ -11,9 +11,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Getter
 @ToString
-@NoArgsConstructor
 public class ThemeParkRide {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
