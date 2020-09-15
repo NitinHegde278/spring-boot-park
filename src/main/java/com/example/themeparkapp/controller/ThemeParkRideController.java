@@ -29,4 +29,9 @@ public class ThemeParkRideController {
     public ThemeParkRide createRide(@Valid @RequestBody ThemeParkRide themeParkRide) {
         return themeParkRideRepository.save(themeParkRide);
     }
+    
+    @GetMapping(value = "/ride/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<ThemeParkRide> getRide(@PathVariable String name){
+        return themeParkRideRepository.findByName(name);
+    }
 }
