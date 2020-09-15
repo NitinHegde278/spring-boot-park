@@ -1,4 +1,6 @@
-FROM openjdk
-EXPOSE 5000
-ADD target/themepark-app.jar themepark-app.jar
-ENTRYPOINT ["sh", "-c", "java -jar /themepark-app.jar"]
+FROM openjdk:8
+VOLUME /tmp
+EXPOSE 8004
+ADD target/themepark-app.jar app.jar
+ENV JAVA_OPTS=""
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
